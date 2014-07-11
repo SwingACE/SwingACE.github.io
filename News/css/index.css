@@ -71,7 +71,7 @@ input[type="button"]:hover{
 	float:right;
 }
 #slideLeft{
-	background:url("photos/arrowLeft.png");
+	background:url("arrowPhoto/arrowLeft.png");
 	padding:0px;
 	margin:0px;
 	border:0px;
@@ -80,7 +80,7 @@ input[type="button"]:hover{
 	float:left;
 }
 #slideRight{
-	background:url("photos/arrowRight.png");
+	background:url("arrowPhoto/arrowRight.png");
 	padding:0px;
 	margin:0px;
 	border:0px;

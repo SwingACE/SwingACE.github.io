@@ -2,9 +2,10 @@
 	<head>
 		<meta charset="utf-8">
 		<title>图片新闻轮播</title>
-		<script src="jquery.js"></script>
-		<link rel="stylesheet" type="text/css" href="index.css">
-		<script src="base.js"></script>
+		<script src="src/jquery.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<script src="src/base.js"></script>
+		<script src="src/onload.js"></script>
 	</head>
 	<body>
 		<h1 class="header">精选图片新闻</h1>
@@ -79,34 +80,6 @@
 		</div>
 	</body>
 	<script>
-		loadComments(pageList[pageIndex]);
-		document.getElementById("pageUp").addEventListener("click",pageUp);
-		document.getElementById("pageDown").addEventListener("click",pageDown);
-		document.getElementById("slideRight").addEventListener("click",function(){
-				if(index < list.length-1){
-					index++;
-					loadPhoto(index);
-					time = new Date;
-				}
-				else if(index == list.length-1){
-					index = 0;
-					loadPhoto(index);
-					time = new Date;
-				}
-			});
-		document.getElementById("slideLeft").addEventListener("click",function(){
-				if(index > 0){
-					index--;
-					loadPhoto(index);
-					time = new Date;
-				}
-				else if(index == 0){
-					index = list.length-1;
-					loadPhoto(index);
-					time = new Date;
-				}
-			});
-		$(".showWindow img").hover(function(){clearInterval(timer);},function(){time = new Date;timer = setInterval(updateNewsAuto);});
 		var time = new Date;
 		var timer = setInterval(updateNewsAuto);
 	</script>
