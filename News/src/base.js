@@ -1,8 +1,16 @@
+			var storage = window.localStorage;
 			var pageList = ["service/page1.json",
 			"service/page2.json",
 			"service/page3.json"
 			]
-			var pageIndex = 0;
+			var pageIndex;
+			if (!storage.getItem("pageIndex")){
+				pageIndex = 0;
+				storage.setItem("pageIndex",pageIndex);
+			}
+			else{
+				pageIndex=parseInt(storage.getItem("pageIndex"));
+			}
 			function pageUp(){
 				if (pageIndex==0){
 					return;
@@ -10,6 +18,7 @@
 				else{
 					pageIndex--;
 					loadComments(pageList[pageIndex]);
+					storage.pageIndex = pageIndex;
 				}
 			}
 			function pageDown(){
@@ -19,11 +28,13 @@
 				else{
 					pageIndex++;
 					loadComments(pageList[pageIndex]);
+					storage.pageIndex = pageIndex;
 				}
 			}
 			function showPage(str){
 				pageIndex = parseInt(str);
 				loadComments(pageList[pageIndex]);
+				storage.pageIndex = pageIndex;
 			}
 			function loadComments(str){
 				var result;
@@ -112,7 +123,14 @@
 			"service/news3.json",
 			"service/news4.json"
 			];
-			var index=0;
+			var index;
+			if (!storage.getItem("index")){
+				index = 0;
+				storage.setItem("index",index);
+			}
+			else{
+				index=parseInt(storage.getItem("index"));
+			}
 			function loadPhoto(indx){
 				var result;
 				if(window.XMLHttpRequest){
@@ -136,10 +154,12 @@
 					if(index < list.length-1){
 						index++;
 						loadPhoto(index);
+						storage.index = index;
 					}
 					else if(index == list.length-1){
 						index = 0;
 						loadPhoto(index);
+						storage.index = index;
 					}
 					time = new Date;
 				}
