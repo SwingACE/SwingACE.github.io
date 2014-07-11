@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>图片新闻轮播</title>
+		<script src="jquery.js"></script>
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<script src="base.js"></script>
+	</head>
+	<body>
+		<h1 class="header">精选图片新闻</h1>
+		<div class="show">
+			<input id="slideRight" type="button">
+			<input id="slideLeft" type="button">
+			<div class = "showWindow">
+				<a href="http://news.qtv.com.cn/system/2014/07/11/011569249_01.shtml" target="blank"><img src="photos/photo1.jpg"></a>
+			</div>
+		</div>
+		<div class="comment">
+			<p class="commentHeader">精彩评论来一发</p>
+			<ul>
+				<li>
+					<div class="content">
+						<span class="floor">楼主</span>
+						<p>
+							发言人：
+							<span class="personalInfo"></span>
+						</p>
+						<div class="detail">	
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="content">
+						<span class="floor">楼主</span>
+						<p>
+							发言人：
+							<span class="personalInfo"></span>
+						</p>
+						<div class="detail">	
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="content">
+						<span class="floor">楼主</span>
+						<p>
+							发言人：
+							<span class="personalInfo"></span>
+						</p>
+						<div class="detail">	
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="content">
+						<span class="floor">楼主</span>
+						<p>
+							发言人：
+							<span class="personalInfo"></span>
+						</p>
+						<div class="detail">	
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="paginator">
+			<span class="pageDisplay"></span>
+			<input id="pageUp" type="button" value="上一页">
+			<input id="pageDown" type="button" value="下一页">
+			<span class="directChange">
+				跳转到：
+				<select size="1" onchange="showPage(this.value)">
+					<option value="0">1</option>
+					<option value="1">2</option>
+					<option value="2">3</option>
+				</select>
+			</span>
+		</div>
+	</body>
+	<script>
+		loadComments(pageList[pageIndex]);
+		document.getElementById("pageUp").addEventListener("click",pageUp);
+		document.getElementById("pageDown").addEventListener("click",pageDown);
+		document.getElementById("slideRight").addEventListener("click",function(){
+				if(index < list.length-1){
+					index++;
+					loadPhoto(index);
+					time = new Date;
+				}
+				else if(index == list.length-1){
+					index = 0;
+					loadPhoto(index);
+					time = new Date;
+				}
+			});
+		document.getElementById("slideLeft").addEventListener("click",function(){
+				if(index > 0){
+					index--;
+					loadPhoto(index);
+					time = new Date;
+				}
+				else if(index == 0){
+					index = list.length-1;
+					loadPhoto(index);
+					time = new Date;
+				}
+			});
+		$(".showWindow img").hover(function(){clearInterval(timer);},function(){time = new Date;timer = setInterval(updateNewsAuto);});
+		var time = new Date;
+		var timer = setInterval(updateNewsAuto);
+	</script>
+</html>

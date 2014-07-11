@@ -1,0 +1,90 @@
+body {
+	background:white;
+	padding:0px;
+	font-family: "微软雅黑", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-style: normal;
+}
+ul {
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+.header{
+	margin-right:50px;
+	text-align:center;
+	font-size:50px;
+}
+.commentHeader{
+	font-size:30px;
+}
+.show{
+	height:435px;
+	width:1100px;
+	padding-bottom:20px;
+	padding-left:100px;
+	padding-top:0px;
+}
+.showWindow{
+	height:435px;
+	width:900px;
+	padding:0px;
+}
+.showWindow img{
+	width:900px;
+	height:435px;
+	position:absolute;
+}
+.showWindow img:hover{
+	width:950px;
+	height:459px;
+	margin-left:-25px;
+}
+.comment{
+	margin-left:170px;
+	margin-right:100px;
+	width:1000px;
+}
+.content{
+	margin-top:10px;
+	margin-bottom:10px;
+	background:rgb(211, 209, 209);
+	height:90px;
+}
+.content:hover{
+	background:rgb(155, 154, 154);
+}
+.floor{
+	float:right;
+}
+.paginator{
+	margin-left:170px;
+	width:1000px;
+}
+input[type="button"]{
+	cursor:pointer;
+}
+input[type="button"]:hover{
+	background:rgb(236, 236, 236);
+}
+.directChange{
+	float:right;
+}
+#slideLeft{
+	background:url("photos/arrowLeft.png");
+	padding:0px;
+	margin:0px;
+	border:0px;
+	height:435px;
+	width:100px;
+	float:left;
+}
+#slideRight{
+	background:url("photos/arrowRight.png");
+	padding:0px;
+	margin:0px;
+	border:0px;
+	height:435px;
+	width:100px;
+	float:right;
+}
