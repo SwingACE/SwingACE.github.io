@@ -1,5 +1,5 @@
 /*
-ÊÂ¼þÏìÓ¦µÄ½Å±¾ÎÄ¼þ£¬ÐèÒªºÍOperation¼°basicAction.jsÒ»Æðµ÷ÓÃ¡£
+ï¿½Â¼ï¿½ï¿½ï¿½Ó¦ï¿½Ä½Å±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Operationï¿½ï¿½basicAction.jsÒ»ï¿½ï¿½ï¿½ï¿½ï¿½Ã¡ï¿½
 Neo Zackton
 2014-07
 */
@@ -21,7 +21,7 @@ function takeAction(event) {                         //
 function removeAction(event) {
     var key = event.keyCode;
     switch (key) {
-        //case 32: alert("Ê¹ÓÃÄ§·½ÁË£¡"); break;
+        //case 32: alert("Ê¹ï¿½ï¿½Ä§ï¿½ï¿½ï¿½Ë£ï¿½"); break;
         case 37: engine.speedX = 0; break;
             //case 38: moveVerticallyUp(); break;
         case 39: engine.speedX = 0; break;
@@ -33,6 +33,7 @@ function removeAction(event) {
 function nextLevel() {
     currentLevel++;
     loadMap(currentLevel);
+    $('div#systemNotice')[0].innerHTML = 'Level' + String(currentLevel) + '<a onclick ="nextLevel()"> nextLevel</a>';
     start();
 }
 
@@ -111,12 +112,12 @@ function loadMap(level) {
                 map.beginPath();
                 map.moveTo(100, 200);
                 map.lineTo(700, 200);
-                map.moveTo(300, 150);
+                map.moveTo(300, 160);
                 map.lineTo(300, 200);
                 map.moveTo(400, 200);
-                map.lineTo(400, 150);
+                map.lineTo(400, 160);
                 map.moveTo(500, 200);
-                map.lineTo(500, 150);
+                map.lineTo(500, 160);
                 map.closePath();
                 map.stroke();
 
