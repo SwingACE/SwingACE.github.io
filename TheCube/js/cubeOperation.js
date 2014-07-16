@@ -123,10 +123,14 @@ function htmlRefresh(type) {
     
     if (type == 'direction' || type == 'both') {
         var directionIconsOrder = { 'right': 1, 'up': 3, 'left': 2, 'down': 0 };
-        for(var i = 0; i < 4; i++)
+        for(var i = 0; i < 4; i++){
             $('img.directionIcon')[i].style.border = "2px dotted gray";
-        if (cubeDirection != 'undefined')
+            $('img.directionIcon')[i].style.opacity = 0;
+        }
+        if (cubeDirection != 'undefined'){
             $('img.directionIcon')[directionIconsOrder[cubeDirection]].style.border = "2px solid blue";
+            $('img.directionIcon')[i].style.opacity = 1;
+        }
     } 
     if(type == 'storageRegion' || type == 'both') {
         var storageDivs = $('div.storageRegion');
