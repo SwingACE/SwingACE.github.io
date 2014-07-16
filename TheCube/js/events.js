@@ -3,6 +3,8 @@
 Neo Zackton
 2014-07
 */
+
+var maxLevel = 1;
 function takeAction(event) {                         //  
     var key = event.keyCode;
     switch (key) {
@@ -31,6 +33,10 @@ function removeAction(event) {
 }
 
 function nextLevel() {
+    if(currentLevel == maxLevel) {
+        currentLevel = 0;
+        alert('已通关！');
+    }
     currentLevel++;
     loadMap(currentLevel);
     start();
