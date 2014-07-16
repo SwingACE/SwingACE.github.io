@@ -48,6 +48,7 @@ function clearMap() {
 function loadMap(level) {
 
     clearMap();
+    $('div#systemNotice')[0].innerHTML = 'Level' + String(level);
     switch (level)
         // map Level 0;
     {
