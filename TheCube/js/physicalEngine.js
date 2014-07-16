@@ -55,13 +55,11 @@ function bonusSound(){
 	body.appendChild(sound);
 }
 function gameover(){
-	//clearInterval(timer);
 	var body = document.getElementsByTagName("body")[0];
 	var gameover = document.createElement("div");
 	gameover.setAttribute("class","hintIncident");
 	gameover.innerHTML = "GAMEOVER!";
 	body.appendChild(gameover);
-	//body.removeChild(gameover);
 	setTimeout(function(){document.getElementsByTagName("body")[0].removeChild(document.getElementsByClassName("hintIncident")[0]);},500);
 }
 function cubeSound(){
