@@ -64,11 +64,12 @@ function loadMap(level) {
                 setPosition(hero, startPoint.x, canv.height - startPoint.y);
 
                 energys = [{ x: 270, y: 200, validity: 'uncollected' },
+                            { x: 170, y: 200, validity: 'uncollected' },
                             { x: 470, y: 130, validity: 'uncollected' }
                 ];
                 setEnergys();
 
-                endLine = { x: 650, y: 50 };
+                endLine = { x: 650, y: 130 };
 
                 map.save();
                 map.lineWidth = 2;
