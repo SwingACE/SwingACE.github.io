@@ -4,7 +4,7 @@ Neo Zackton
 2014-07
 */
 
-var maxLevel = 1;
+var maxLevel = 2;
 function takeAction(event) {                         //  
     var key = event.keyCode;
     switch (key) {
