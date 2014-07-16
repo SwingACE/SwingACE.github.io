@@ -63,18 +63,41 @@ function gameover(){
 	//body.removeChild(gameover);
 	setTimeout(function(){document.getElementsByTagName("body")[0].removeChild(document.getElementsByClassName("hintIncident")[0]);},500);
 }
+function cubeSound(){
+	if (document.getElementsByClassName("triggeredSound")[0]){
+		document.getElementsByTagName("body")[0].removeChild(document.getElementsByClassName("triggeredSound")[0]);
+	}
+	var body = document.getElementsByTagName("body")[0];
+	var sound = document.createElement("audio");
+	var src = document.createElement("source");
+	sound.setAttribute("class","triggeredSound");
+	sound.setAttribute("autoplay","autoplay");
+	src.setAttribute("src","ext/magic.wav");
+	sound.appendChild(src);
+	body.appendChild(sound);
+}
+function jumpSound(){
+	if (document.getElementsByClassName("triggeredSound")[0]){
+		document.getElementsByTagName("body")[0].removeChild(document.getElementsByClassName("triggeredSound")[0]);
+	}
+	var body = document.getElementsByTagName("body")[0];
+	var sound = document.createElement("audio");
+	var src = document.createElement("source");
+	sound.setAttribute("class","triggeredSound");
+	sound.setAttribute("autoplay","autoplay");
+	src.setAttribute("src","ext/jump.wav");
+	sound.appendChild(src);
+	body.appendChild(sound);
+}
 var engine = {
+	//判断人物是否在下落
 	isFall:function(){
 		var data = map.getImageData(this.centerX-heroMargin+1,250-(this.centerY-heroMargin),2*heroMargin-1,1).data;
-		//console.log(data);
 		for (var i = 0;i < 2*heroMargin-1;i++){
-			//console.log(data[4*i+0]);
 			if (data[4*i+3] != 0 && data[4*i+2] != 255){
-				//alert("false");
 				return false;
 			}
 		}
-		//alert("true");
 		return true;
 	},
 	centerX:0,
