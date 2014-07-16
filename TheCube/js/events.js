@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 ﻿/*
 事件响应的脚本文件，需要和Operation及basicAction.js一起调用。
-=======
-/*
-�¼���Ӧ�Ľű��ļ�����Ҫ��Operation��basicAction.jsһ�����á�
->>>>>>> be2c912ad3c39de4982958073cb39ef10ac3cdea
 Neo Zackton
 2014-07
 */
@@ -26,11 +21,7 @@ function takeAction(event) {                         //
 function removeAction(event) {
     var key = event.keyCode;
     switch (key) {
-<<<<<<< HEAD
         //case 32: alert("使用魔方了！"); break;
-=======
-        //case 32: alert("ʹ��ħ���ˣ�"); break;
->>>>>>> be2c912ad3c39de4982958073cb39ef10ac3cdea
         case 37: engine.speedX = 0; break;
             //case 38: moveVerticallyUp(); break;
         case 39: engine.speedX = 0; break;
@@ -42,7 +33,6 @@ function removeAction(event) {
 function nextLevel() {
     currentLevel++;
     loadMap(currentLevel);
-    $('div#systemNotice')[0].innerHTML = 'Level' + String(currentLevel) + '<a onclick ="nextLevel()"> nextLevel</a>';
     start();
 }
 
@@ -121,12 +111,12 @@ function loadMap(level) {
                 map.beginPath();
                 map.moveTo(100, 200);
                 map.lineTo(700, 200);
-                map.moveTo(300, 160);
+                map.moveTo(300, 150);
                 map.lineTo(300, 200);
                 map.moveTo(400, 200);
-                map.lineTo(400, 160);
+                map.lineTo(400, 150);
                 map.moveTo(500, 200);
-                map.lineTo(500, 160);
+                map.lineTo(500, 150);
                 map.closePath();
                 map.stroke();
 

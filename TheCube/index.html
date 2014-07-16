@@ -1,10 +1,10 @@
-ï»¿<!--â€œå¥‡å¼‚é­”æ–¹â€ä¸»ç•Œé¢htmlä»£ç ï¼Œæ„å»ºæ¡†æ¶ 2014-07-13 -->
+<!--¡°ÆæÒìÄ§·½¡±Ö÷½çÃæhtml´úÂë£¬¹¹½¨¿ò¼Ü 2014-07-13 -->
 <!DOCTYPE HTML>
 <html>
     <head>
         <meta charset ="uft8" />
         
-        <title>å¥‡å¼‚é­”æ–¹</title>
+        <title>ÆæÒìÄ§·½</title>
 
         <script type="text/javascript" src="http://learn.cic.tsinghua.edu.cn:80/res/common/js/library/jquery/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="js/systemOperation.js"></script>
@@ -24,7 +24,7 @@
             <div id="systemOperation">
                 <ul class="nav">
                     <li class="nav-item" id="Li1" style ="">
-                    <a ><img class="systemIcon" id="Img1" src ="ext/users.png" title ="å¸®åŠ©" onclick ="getHelp()"/></a>
+                    <a ><img class="systemIcon" id="Img1" src ="ext/users.png" title ="°ïÖú" onclick ="getHelp()"/></a>
                     <div class="nav-item-sub sl-shadow">
                             <table class="nav-item-table" id="HelpInfo">
                             <tbody>
@@ -37,11 +37,11 @@
                     <div class="angle sl-angle"></div>
                     </li>
                 </ul>
-                <img class="systemIcon" id="music" src ="ext/hint.png" title ="å¼€/å…³éŸ³ä¹" onclick ="switchMusic()"/>
-                <img class="systemIcon" id="restrart" src ="ext/refresh.png" title ="é‡å¼€" onclick ="restart()">
+                <img class="systemIcon" id="music" src ="ext/hint.png" title ="¿ª/¹ØÒôÀÖ" onclick ="switchMusic()"/>
+                <img class="systemIcon" id="restrart" src ="ext/refresh.png" title ="ÖØ¿ª" onclick ="restart()">
                 
                 <span>&nbsp</span>
-                <img class="systemIcon" src ="ext/configuration.png" title ="ä¸»èœå•ï¼ˆæœªå¯ç”¨ï¼‰" onclick ="returnMenu()"/>
+                <img class="systemIcon" src ="ext/configuration.png" title ="Ö÷²Ëµ¥£¨Î´ÆôÓÃ£©" onclick ="returnMenu()"/>
             </div>
             <div id="systemNotice">
                 Level 0
@@ -50,23 +50,23 @@
             
             <div id="cubeOperation" >
                 <div class="state" id ="energyBar">
-                    <h3>èƒ½é‡:</h3>
+                    <h3>ÄÜÁ¿:</h3>
                     <div class ="clearfix"></div>
                 </div>
                 <hr />
                 <div class="state" id ="toolBar">
-                    <h3>é“å…·:</h3>
+                    <h3>µÀ¾ß:</h3>
                     <div class ="clearfix"></div>
-                    <img id="cubeIcon" src="ext/cube.png" title="ä½¿ç”¨é­”æ–¹" onclick ="useCube(map)" />
+                    <img id="cubeIcon" src="ext/cube.png" title="Ê¹ÓÃÄ§·½" onclick ="useCube(map)" />
                 </div>                  
-                <h3>æ“ä½œé¢æ¿</h3>
+                <h3>²Ù×÷Ãæ°å</h3>
                 <div id="cubeStorage">
                     <div style ="height:45px">
-                        <img style ="display:block;position:relative;left:90px;" class="directionIcon" src="ext/arrow-down.png" title="å‘ä¸‹" onclick="setCubeDirection('down')"  />
+                        <img style ="display:block;position:relative;left:90px;" class="directionIcon" src="ext/arrow-down.png" title="ÏòÏÂ" onclick="setCubeDirection('down')"  />
                     </div>
                     <div class ="clearfix"></div>
                     <div style ="float:left; width:50px; height:45px;">
-                        <img style ="position:relative;top:41px;" class="directionIcon" src="ext/arrow-right.png" title="å‘å³" onclick="setCubeDirection('right')" />
+                        <img style ="position:relative;top:41px;" class="directionIcon" src="ext/arrow-right.png" title="ÏòÓÒ" onclick="setCubeDirection('right')" />
                     </div>
                     <table  class="cubeStorage">
                             <tr>
@@ -86,11 +86,11 @@
                             </tr>
                     </table>
                     <div style ="float:right; width:50px; height:45px;">
-                        <img style ="position:relative;top:41px;" class="directionIcon" src="ext/arrow-left.png" title="å‘å·¦" onclick="setCubeDirection('left')" />
+                        <img style ="position:relative;top:41px;" class="directionIcon" src="ext/arrow-left.png" title="Ïò×ó" onclick="setCubeDirection('left')" />
                     </div>
                     <div style ="clear:both;height:0;"></div>
                     <div style ="display:block;height:45px;">
-                        <img  style ="display:block;position:relative;left:90px;" class="directionIcon" src="ext/arrow-up.png" title="å‘ä¸Š" onclick="setCubeDirection('up')" />
+                        <img  style ="display:block;position:relative;left:90px;" class="directionIcon" src="ext/arrow-up.png" title="ÏòÉÏ" onclick="setCubeDirection('up')" />
                     </div>
                 </div>
              </div>
@@ -105,31 +105,31 @@
 
             </canvas>
 
-<!--   ä¸‹é¢æ˜¯è„šæœ¬æ–‡ä»¶-->
+<!--   ÏÂÃæÊÇ½Å±¾ÎÄ¼ş-->
             <script type ="text/javascript" id="en">
 
-                /*å…¨å±€å˜é‡çš„å£°æ˜*/
+                /*È«¾Ö±äÁ¿µÄÉùÃ÷*/
 
-                //ä¸»è¦å¯¹è±¡
+                //Ö÷Òª¶ÔÏó
                 var cubeSpace = $('canvas.storage')[0].getContext('2d');
                 var hero = $('div.hero')[0];
                 var canv = $('canvas.map')[0];
                 var map = canv.getContext('2d');
                 var energyBar = $('div#energyBar');
 
-                //é¡µé¢å‚æ•°
+                //Ò³Ãæ²ÎÊı
                 var map_X0 = canv.getBoundingClientRect().left + document.body.scrollLeft;
                 var map_Y0 = canv.getBoundingClientRect().top + document.body.scrollTop;
                 var map_scale_x = canv.clientWidth / canv.width;
                 var map_scale_y = canv.clientHeight / canv.height;
                 var heroMargin = parseInt(10 / map_scale_x);
                 
-                //æ¸¸æˆå‚æ•°
+                //ÓÎÏ·²ÎÊı
                 var currentLevel = 0;
                 
                 var people = {};
-                var startPoint;                          //ä¸»è§’çš„å‡ºç”Ÿç‚¹ ç‰©ç†åæ ‡ ç”±åœ°å›¾ç»™å‡º
-                var endLine;                             //ç»ˆç‚¹çº¿ï¼Œç‰©ç†åæ ‡x,yéƒ½è¶…è¿‡è¿™ä¸ªç‚¹ï¼Œåˆ™åœæ­¢è¿åŠ¨ï¼Œè¿›å…¥ä¸‹ä¸€å…³ã€‚
+                var startPoint;                          //Ö÷½ÇµÄ³öÉúµã ÎïÀí×ø±ê ÓÉµØÍ¼¸ø³ö
+                var endLine;                             //ÖÕµãÏß£¬ÎïÀí×ø±êx,y¶¼³¬¹ıÕâ¸öµã£¬ÔòÍ£Ö¹ÔË¶¯£¬½øÈëÏÂÒ»¹Ø¡£
 
                 var isCubeEmpty = true;
                 var cubeDirection = 'undefined';
@@ -137,20 +137,20 @@
                 var currentEnergy = 0;
                 var timer;
 
-                //åœ°å›¾å…ƒç´ çš„å®šä¹‰
-                var energys = [];                                                          //å¯¹è±¡åï¼š energyï¼Œ èƒ½é‡æ™¶ä½“ã€‚
+                //µØÍ¼ÔªËØµÄ¶¨Òå
+                var energys = [];                                                          //¶ÔÏóÃû£º energy£¬ ÄÜÁ¿¾§Ìå¡£
                
 
-                /*ä¸‹é¢æ˜¯æ¥å£å‡½æ•°éƒ¨åˆ†*/
+                /*ÏÂÃæÊÇ½Ó¿Úº¯Êı²¿·Ö*/
 
-                //è®¾ç½®ç‰©ç†åæ ‡ï¼ˆåæ ‡ç³»åŸç‚¹åœ¨å·¦ä¸‹è§’ï¼‰ä½ç½®çš„å¯¹è±¡ã€‚  è¦æ±‚ä¼ å…¥å¯¹è±¡ç›’å­çš„å·¦ä¸‹è§’çš„åæ ‡ã€‚
+                //ÉèÖÃÎïÀí×ø±ê£¨×ø±êÏµÔ­µãÔÚ×óÏÂ½Ç£©Î»ÖÃµÄ¶ÔÏó¡£  ÒªÇó´«Èë¶ÔÏóºĞ×ÓµÄ×óÏÂ½ÇµÄ×ø±ê¡£
 
                 function setRealPosition(object, leftBottom_x, leftBottom_y) {
                     object.style.left = String(map_X0 + leftBottom_x * map_scale_x) + 'px';
                     object.style.top = String(map_Y0 + (canv.height - leftBottom_y) * map_scale_y - object.clientHeight) + 'px';
                 }
 
-                //è·å¾—å¯¹è±¡çš„ç‰©ç†åæ ‡ä½ç½®ã€‚                        è¿”å›åæ ‡ç‚¹å¯¹è±¡ã€‚
+                //»ñµÃ¶ÔÏóµÄÎïÀí×ø±êÎ»ÖÃ¡£                        ·µ»Ø×ø±êµã¶ÔÏó¡£
                 function getRealPosition(object) {
                     var tmp = clientToCanvas({
                         x: object.getBoundingClientRect().left + document.body.scrollLeft,
@@ -160,12 +160,12 @@
                     return tmp;
                 }
 
-                //å¼€å§‹è¿åŠ¨è®¡æ—¶
+                //¿ªÊ¼ÔË¶¯¼ÆÊ±
                 loadHelp();
                 loadMap(currentLevel);
                 start();
 
-                /*åŸºæœ¬å‡½æ•°*/
+                /*»ù±¾º¯Êı*/
                 function clientToCanvas(point) {
                     return { x: (point.x - map_X0) / map_scale_x, y: (point.y - map_Y0) / map_scale_y };
                 }
