@@ -125,11 +125,11 @@ function htmlRefresh(type) {
         var directionIconsOrder = { 'right': 1, 'up': 3, 'left': 2, 'down': 0 };
         for(var i = 0; i < 4; i++){
             $('img.directionIcon')[i].style.border = "2px dotted gray";
-            $('img.directionIcon')[i].style.opacity = 0;
+           // $('img.directionIcon')[i].style.opacity = 0;
         }
         if (cubeDirection != 'undefined'){
             $('img.directionIcon')[directionIconsOrder[cubeDirection]].style.border = "2px solid blue";
-            $('img.directionIcon')[i].style.opacity = 1;
+            //$('img.directionIcon')[i].style.opacity = 1;
         }
     } 
     if(type == 'storageRegion' || type == 'both') {
