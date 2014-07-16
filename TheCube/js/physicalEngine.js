@@ -328,7 +328,7 @@ function moveHoriziontallyL (){
 //跳跃
 function moveVerticallyUp (){
 	if (!engine.isFall()){
-		jumpSound()；
+		jumpSound();
 		engine.speedY=primarySpeedY;
 	}
 }
