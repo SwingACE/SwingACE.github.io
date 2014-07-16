@@ -10,7 +10,7 @@ function energySound(){
 	var src = document.createElement("source");
 	sound.setAttribute("class","triggeredSound");
 	sound.setAttribute("autoplay","autoplay");
-	src.setAttribute("src","ext/missionComplete.wav");
+	src.setAttribute("src","ext/missionComplet.wav");
 	sound.appendChild(src);
 	body.appendChild(sound);
 }
