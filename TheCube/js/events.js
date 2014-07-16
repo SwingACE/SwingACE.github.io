@@ -58,6 +58,50 @@ function loadMap(level) {
     switch (level)
         // map Level 0;
     {
+        case 2:
+            {
+                startPoint = { x: 100, y: 50 };
+                setPosition(hero, startPoint.x, canv.height - startPoint.y);
+
+                energys = [{ x: 270, y: 200, validity: 'uncollected' },
+                            { x: 470, y: 130, validity: 'uncollected' }
+                ];
+                setEnergys();
+
+                endLine = { x: 650, y: 50 };
+
+                map.save();
+                map.lineWidth = 2;
+                map.beginPath();
+                map.moveTo(100, 200);
+                map.lineTo(700, 200);
+                map.moveTo(200, 200);
+                map.lineTo(200, 50);
+                map.lineTo(600, 50);
+                map.lineTo(600, 200);
+                
+                map.moveTo(220, 90);
+                map.lineTo(250, 90);
+                map.lineTo(250, 130);
+                map.lineTo(300, 130);
+                map.lineTo(300, 90);
+                map.lineTo(330, 90);
+                map.moveTo(430, 90);
+                map.lineTo(460, 90);
+                map.lineTo(460, 130);
+                map.lineTo(510, 130);
+                map.moveTo(510, 90);
+                map.lineTo(540, 90);
+                map.lineTo(330, 170);
+                map.lineTo(430, 170);
+                map.closePath();
+                map.stroke();
+
+                map.font = "20px gray ";
+                map.strokeText("-->Next", endLine.x, canv.height - endLine.y -10);
+
+                map.restore();
+            } break;
         case 1:
             {
                 startPoint = { x: 100, y: 50 };
