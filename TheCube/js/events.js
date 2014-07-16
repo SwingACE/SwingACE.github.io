@@ -90,9 +90,9 @@ function loadMap(level) {
                 map.lineTo(460, 90);
                 map.lineTo(460, 130);
                 map.lineTo(510, 130);
-                map.moveTo(510, 90);
+                map.lineTo(510, 90);
                 map.lineTo(540, 90);
-                map.lineTo(330, 170);
+                map.moveTo(330, 170);
                 map.lineTo(430, 170);
                 map.closePath();
                 map.stroke();
