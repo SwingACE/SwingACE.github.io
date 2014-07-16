@@ -76,6 +76,7 @@ function cubeSound(){
 	body.appendChild(sound);
 }
 function jumpSound(){
+	alert("jump");
 	if (document.getElementsByClassName("triggeredSound")[0]){
 		document.getElementsByTagName("body")[0].removeChild(document.getElementsByClassName("triggeredSound")[0]);
 	}
