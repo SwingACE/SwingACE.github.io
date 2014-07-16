@@ -1,6 +1,7 @@
 ﻿var primarySpeedY=100;
 var primarySpeedX=40;
 var elapsed = 0.05;
+//以下是一些音效
 function energySound(){
 	if (document.getElementsByClassName("triggeredSound")[0]){
 		document.getElementsByTagName("body")[0].removeChild(document.getElementsByClassName("triggeredSound")[0]);
@@ -111,8 +112,7 @@ var engine = {
 	GRAVITY:-200,
 	overBoundary:false,
 	bonus:false,
-	//collidedX:false,
-	//collidedX:false,
+	//计算人物下一时刻的x坐标
 	nextStateX:function(){
 		var dx = this.speedX*elapsed;
 		if(this.speedX<0){
@@ -179,16 +179,14 @@ var engine = {
 			this.newSpeedX = 0;
 		}
 	},
+	//计算下一个时刻的x坐标
 	nextStateY:function(){
 		if(this.isFall()){
 			if(this.speedY == 0){
-				//alert("error");
 				this.speedY = -primarySpeedY;
 			}
 		}
 		var dy = this.speedY*elapsed;
-		//console.log(dy);
-		//console.log(this.speedY);
 		if(this.speedY<=-10){
 			if (Math.round(this.centerY+dy-heroMargin) <= 0){
 				this.overBoundary = true;
@@ -208,8 +206,6 @@ var engine = {
 						if (energyIndex == -1) continue;           // isEnergyUnconnected返回坐标对应的能量编号，若不存在或者已经被吸收返回-1
 						energySound();
 					    energyNo = touchEnergy(energyIndex);
-						//alert(this.centerX+j-(heroMargin-2));
-						//alert(250-this.centerY+heroMargin+i);
 					}
 				}
 			}
@@ -217,7 +213,6 @@ var engine = {
 			this.newSpeedY = Math.round(this.speedY + this.GRAVITY*elapsed);
 		}
 		else if(this.speedY>=10){
-			//alert("posible");
 			if (Math.round(this.centerY+dy+heroMargin) >= 250){
 				this.bonus = true;
 				return;
@@ -236,8 +231,6 @@ var engine = {
 						if (energyIndex == -1) continue;           // isEnergyUnconnected返回坐标对应的能量编号，若不存在或者已经被吸收返回-1
 						energySound();
 					    energyNo = touchEnergy(energyIndex);
-						//alert(this.centerX+j-(heroMargin-2));
-						//alert(250-this.centerY-heroMargin-(Math.round(dy)-i));
 					}
 				}
 			}
@@ -249,14 +242,14 @@ var engine = {
 			this.newSpeedY = 0;
 		}
 	},
+	//彩蛋
 	Bonus:function(){
 		this.newSpeedY = 0;
 		//alert("bonus");
 		this.bonus = false;
 	},
+	//对人物运动状态进行修正
 	nextStateXY:function(){
-		//if (this.speedX >= 10 && this.speedY <= -10){
-			//alert("beizhixing");
 			var minX = heroMargin;
 			var minY = heroMargin;
 			var data = map.getImageData(this.newPositionX,250-this.newPositionY,heroMargin,heroMargin).data;
@@ -266,45 +259,37 @@ var engine = {
 						if (minX > x){
 							minX = x;
 							this.newSpeedX = 0;
-							//alert("changed1");
 						}
 						if (minY > y){
 							minY = y;
 							this.newSpeedY = 0;
-							//alert("changed2");
 						}
 					}
 				}
 			}
 			this.newPositionX = this.newPositionX - (heroMargin - minX);
 			this.newPositionY = this.newPositionY + (heroMargin - minY);
-		//}
-		//else if (this.speedX <= -10 && this.speedY <= -10){
 			var maxX2 = 0;
 			var minY2 = heroMargin;
 			var data2 = map.getImageData(this.newPositionX-heroMargin,250-this.newPositionY,heroMargin,heroMargin).data;
-			//console.log(data2);
 			for (var y = 0; y < heroMargin; y++){
 				for (var x = 0; x < heroMargin; x++){
 					if (data2[4*(y*heroMargin+x)+3] != 0 && data2[4*(y*heroMargin+x)+2] != 255){
 						if (maxX2 < x){
 							maxX2 = x;
 							this.newSpeedX = 0;
-							//alert("changed3");
 						}
 						if (minY2 > y){
 							minY2 = y;
 							this.newSpeedY = 0;
-							//alert("changed4");
 						}
 					}
 				}
 			}
 			this.newPositionX = this.newPositionX + maxX2;
 			this.newPositionY = this.newPositionY + (heroMargin - minY2);
-		//}
-		//else return;
 	},
+	//初始化物理引擎
 	initialize:function (){
 		this.centerX=0;
 		this.centerY=0;
@@ -314,21 +299,18 @@ var engine = {
 		this.newPositionY=0;
 		this.newSpeedX=0;
 		this.newSpeedY=0;
-		//this.GRAVITY=-30;
 		this.overBoundary=false;
 		this.bonus = false;
 	},
+	//将下一时刻状态转化为当前状态
 	toNextState:function (){
 		this.centerX = this.newPositionX;
 		this.centerY = this.newPositionY;
 		this.speedX = this.newSpeedX;
 		this.speedY = this.newSpeedY;
 	},
+	//过关
 	overEndLine:function (){
-		//console.log(this.centerX);
-		//console.log(this.centerY);
-		//console.log(endLine.x+heroMargin);
-		//console.log(endLine.y+heroMargin-5);
 		if (this.centerX >= endLine.x+heroMargin && this.centerY >= endLine.y+heroMargin-5){
 			return true;
 		}
@@ -337,19 +319,22 @@ var engine = {
 		}
 	}
 };
+//右移
 function moveHoriziontallyR (){
 	engine.speedX = primarySpeedX;
 }
+//左移
 function moveHoriziontallyL (){
 	engine.speedX = -primarySpeedX;
 }
+//跳跃
 function moveVerticallyUp (){
-	//alert("jump");
 	if (!engine.isFall()){
-		//alert("speed");
+		jumpSound()；
 		engine.speedY=primarySpeedY;
 	}
 }
+//更新人物状态
 function upDateData (){
 	engine.nextStateX();
 	engine.nextStateY();
@@ -358,17 +343,7 @@ function upDateData (){
 		clearInterval(timer);
 		deathSound();
 		gameover();
-		//var time = new Date;
-		//while(true){
-		//	if (new Date - time > 1000) break;
-		//}
-		//document.getElementsByTagName("body")[0].removeChild(document.getElementsByClassName("hintIncident")[0]);
-		//setPosition(document.getElementsByClassName("hero")[0],startPoint.x,startPoint.y);
-		//loadMap();
 		restart();
-		//engine.initialize();
-		//engine.centerX = startPoint.x+heroMargin;
-		//engine.centerY = startPoint.y+heroMargin;
 		return;
 	}
 	else{
@@ -377,8 +352,6 @@ function upDateData (){
 			alert("骚年你跳得好高啊");
 		}
 		engine.toNextState();
-		//                                                                                                                    alert(engine.centerX);
-		//alert(engine.centerY);
 		setPosition(document.getElementsByClassName("hero")[0],engine.centerX-heroMargin,250-(engine.centerY-heroMargin));
 		if (engine.overEndLine()){
 			overEndLineSound();
@@ -387,18 +360,15 @@ function upDateData (){
 			congratulation.setAttribute("class","hintIncident");
 			congratulation.innerHTML = "CONGRATULATION!";
 			body.appendChild(congratulation);
-			//body.removeChild(gameover);
 			setTimeout(function(){document.getElementsByTagName("body")[0].removeChild(document.getElementsByClassName("hintIncident")[0]);},2000);
-			//alert("过关了！");
 			nextLevel();
 		}
 	}
 }
+//游戏开始
 function start (){
 	engine.initialize();
 	engine.centerX = startPoint.x+heroMargin;
-	//alert(engine.centerX);
 	engine.centerY = startPoint.y+heroMargin+1;
-	//alert(engine.centerY);
 	timer = setInterval(upDateData,50);
 }
