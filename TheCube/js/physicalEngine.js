@@ -10,7 +10,7 @@ function energySound(){
 	var src = document.createElement("source");
 	sound.setAttribute("class","triggeredSound");
 	sound.setAttribute("autoplay","autoplay");
-	src.setAttribute("src","ext/energy.wav");
+	src.setAttribute("src","ext/energy.mp3");
 	sound.appendChild(src);
 	body.appendChild(sound);
 }
@@ -23,7 +23,7 @@ function overEndLineSound(){
 	var src = document.createElement("source");
 	sound.setAttribute("class","triggeredSound");
 	sound.setAttribute("autoplay","autoplay");
-	src.setAttribute("src","ext/missionComplete.mp3");
+	src.setAttribute("src","ext/missionComplete.wav");
 	sound.appendChild(src);
 	body.appendChild(sound);
 }
