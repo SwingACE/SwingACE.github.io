@@ -1,5 +1,5 @@
-/*
-ÊÂ¼şÏìÓ¦µÄ½Å±¾ÎÄ¼ş£¬ĞèÒªºÍOperation¼°basicAction.jsÒ»Æğµ÷ÓÃ¡£
+ï»¿/*
+äº‹ä»¶å“åº”çš„è„šæœ¬æ–‡ä»¶ï¼Œéœ€è¦å’ŒOperationåŠbasicAction.jsä¸€èµ·è°ƒç”¨ã€‚
 Neo Zackton
 2014-07
 */
@@ -21,7 +21,7 @@ function takeAction(event) {                         //
 function removeAction(event) {
     var key = event.keyCode;
     switch (key) {
-        //case 32: alert("Ê¹ÓÃÄ§·½ÁË£¡"); break;
+        //case 32: alert("ä½¿ç”¨é­”æ–¹äº†ï¼"); break;
         case 37: engine.speedX = 0; break;
             //case 38: moveVerticallyUp(); break;
         case 39: engine.speedX = 0; break;

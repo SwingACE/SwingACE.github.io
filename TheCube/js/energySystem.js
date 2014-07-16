@@ -1,4 +1,4 @@
-var energySize = { width: 20, height: 20 };
+ï»¿var energySize = { width: 20, height: 20 };
 
 function resetEnergy() {
     //energyBar.remove();
@@ -13,7 +13,7 @@ function setEnergys() {
     drawEnergyBar();
 }
 
-function drawEnergy(map, leftBottom_x, leftBottom_y, display) {           //»­ÄÜÁ¿¾§Ìå  displayÎªtrue±íÊ¾ÔÚ»­²¼ÖĞÌí¼Ó£¬·ñÔò±íÊ¾Ä¨È¥¡£
+function drawEnergy(map, leftBottom_x, leftBottom_y, display) {           //ç”»èƒ½é‡æ™¶ä½“  displayä¸ºtrueè¡¨ç¤ºåœ¨ç”»å¸ƒä¸­æ·»åŠ ï¼Œå¦åˆ™è¡¨ç¤ºæŠ¹å»ã€‚
     map.save();
     if (display == true) map.fillStyle = 'blue';
     else {
@@ -33,7 +33,7 @@ function drawEnergy(map, leftBottom_x, leftBottom_y, display) {           //»­ÄÜ
     map.restore();
 }
 
-function isEnergyConnected(x, y) {                                    // ·µ»Ø×ø±ê¶ÔÓ¦µÄÄÜÁ¿±àºÅ£¬Èô²»´æÔÚ»òÕßÒÑ¾­±»ÎüÊÕ·µ»Ø-1
+function isEnergyConnected(x, y) {                                    // è¿”å›åæ ‡å¯¹åº”çš„èƒ½é‡ç¼–å·ï¼Œè‹¥ä¸å­˜åœ¨æˆ–è€…å·²ç»è¢«å¸æ”¶è¿”å›-1
     for (var i in energys) {
         if (energys[i].x < x && energys[i].x + energySize.width > x)
             if (energys[i].y > y && energys[i].y - energySize.height < y) {
@@ -41,15 +41,15 @@ function isEnergyConnected(x, y) {                                    // ·µ»Ø×ø±
                     return i;
             }
     }
-    return -1;                                                                  //´ú±íÊ§°Ü
+    return -1;                                                                  //ä»£è¡¨å¤±è´¥
 }
-function touchEnergy(index) {                                        //½Ó´¥µ½ÄÜÁ¿¾§ÌåµÄ´¦Àí£¬ÊäÈëÅö×²µã×ø±ê¡£
+function touchEnergy(index) {                                        //æ¥è§¦åˆ°èƒ½é‡æ™¶ä½“çš„å¤„ç†ï¼Œè¾“å…¥ç¢°æ’ç‚¹åæ ‡ã€‚
     getEnergy(index);
     updateEnergyBar();
     return 1;     
 }
 
-function getEnergy(index) {                                         //ÎüÊÕµôÄÜÁ¿£¬ÊäÈë¸ÃÄÜÁ¿¾§ÌåµÄĞòºÅ¡£
+function getEnergy(index) {                                         //å¸æ”¶æ‰èƒ½é‡ï¼Œè¾“å…¥è¯¥èƒ½é‡æ™¶ä½“çš„åºå·ã€‚
     drawEnergy(map, energys[index].x, energys[index].y, false);
     energys[index].validity = 'ready';
     currentEnergy++;
@@ -58,7 +58,7 @@ function getEnergy(index) {                                         //ÎüÊÕµôÄÜÁ¿
 function drawEnergyBar() {
     for (var i = 0; i < energys.length; i++) {
         var newIcon = $('<img class="energyIcon" src="ext/crystal.ico"/>');
-        newIcon.css('opacity', 0.2);                                                //Í¸Ã÷±íÊ¾»¹Ã»ÊÕ¼¯µ½¡£
+        newIcon.css('opacity', 0.2);                                                //é€æ˜è¡¨ç¤ºè¿˜æ²¡æ”¶é›†åˆ°ã€‚
         energyBar.append(newIcon[0]);
     }
 }

@@ -1,7 +1,7 @@
-/*
-    ÓÎÏ·½çÃæÑùÊ½±í
+ï»¿/*
+    æ¸¸æˆç•Œé¢æ ·å¼è¡¨
 */
-/*  ×îÍâ²ã²¼¾Ö */
+/*  æœ€å¤–å±‚å¸ƒå±€ */
 body
 {
     background: url('../ext/skulls.png');
@@ -41,14 +41,14 @@ canvas.map
     width: 800px;
 }
 
-/*ÏµÍ³²Ù×÷Çø*/
+/*ç³»ç»Ÿæ“ä½œåŒº*/
 img.systemIcon
 {
     height: 40px;
     width: auto;
     cursor: pointer;
 }
-/*×´Ì¬ËµÃ÷Çø*/
+/*çŠ¶æ€è¯´æ˜åŒº*/
 div.state
 {
     width: 300px;
@@ -72,7 +72,7 @@ canvas.storage
     float: right;
 }
 
-/*Ä§·½²Ù×÷Çø*/
+/*é­”æ–¹æ“ä½œåŒº*/
 img#cubeIcon
 {
     height: 40px;
@@ -137,7 +137,7 @@ table.cubeStorage
 }
 
 
-/*ÓÎÏ·ÔªËØ*/
+/*æ¸¸æˆå…ƒç´ */
 div.hero
 {
     position: absolute;
@@ -151,7 +151,7 @@ img.heroPic
     height: inherit;
 }
 
-/*ÆäËû*/
+/*å…¶ä»–*/
 .clearfix:after
 {
     display: block;
