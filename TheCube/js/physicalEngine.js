@@ -10,7 +10,7 @@ function energySound(){
 	var src = document.createElement("source");
 	sound.setAttribute("class","triggeredSound");
 	sound.setAttribute("autoplay","autoplay");
-	src.setAttribute("src","ext/energy.mp3");
+	src.setAttribute("src","ext/energy.wav");
 	sound.appendChild(src);
 	body.appendChild(sound);
 }
@@ -23,7 +23,7 @@ function overEndLineSound(){
 	var src = document.createElement("source");
 	sound.setAttribute("class","triggeredSound");
 	sound.setAttribute("autoplay","autoplay");
-	src.setAttribute("src","ext/missionComplet.wav");
+	src.setAttribute("src","ext/missionComplete.mp3");
 	sound.appendChild(src);
 	body.appendChild(sound);
 }
@@ -52,6 +52,16 @@ function bonusSound(){
 	src.setAttribute("src","ext/bonus.wav");
 	sound.appendChild(src);
 	body.appendChild(sound);
+}
+function gameover(){
+	//clearInterval(timer);
+	var body = document.getElementsByTagName("body")[0];
+	var gameover = document.createElement("div");
+	gameover.setAttribute("class","hintIncident");
+	gameover.innerHTML = "GAMEOVER!";
+	body.appendChild(gameover);
+	//body.removeChild(gameover);
+	setTimeout(function(){document.getElementsByTagName("body")[0].removeChild(document.getElementsByClassName("hintIncident")[0]);},500);
 }
 var engine = {
 	isFall:function(){
@@ -322,10 +332,16 @@ function upDateData (){
 	engine.nextStateY();
 	engine.nextStateXY();
 	if (engine.overBoundary == true){
-		deathSound();
-		setPosition(document.getElementsByClassName("hero")[0],startPoint.x,startPoint.y);
-		//loadMap();
 		clearInterval(timer);
+		deathSound();
+		gameover();
+		//var time = new Date;
+		//while(true){
+		//	if (new Date - time > 1000) break;
+		//}
+		//document.getElementsByTagName("body")[0].removeChild(document.getElementsByClassName("hintIncident")[0]);
+		//setPosition(document.getElementsByClassName("hero")[0],startPoint.x,startPoint.y);
+		//loadMap();
 		restart();
 		//engine.initialize();
 		//engine.centerX = startPoint.x+heroMargin;
@@ -343,6 +359,13 @@ function upDateData (){
 		setPosition(document.getElementsByClassName("hero")[0],engine.centerX-heroMargin,250-(engine.centerY-heroMargin));
 		if (engine.overEndLine()){
 			overEndLineSound();
+			var body = document.getElementsByTagName("body")[0];
+			var congratulation = document.createElement("div");
+			congratulation.setAttribute("class","hintIncident");
+			congratulation.innerHTML = "CONGRATULATION!";
+			body.appendChild(congratulation);
+			//body.removeChild(gameover);
+			setTimeout(function(){document.getElementsByTagName("body")[0].removeChild(document.getElementsByClassName("hintIncident")[0]);},2000);
 			//alert("过关了！");
 			nextLevel();
 		}

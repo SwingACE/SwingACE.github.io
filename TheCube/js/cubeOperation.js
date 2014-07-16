@@ -1,22 +1,22 @@
-ï»¿/*
-    é­”æ–¹æ“ä½œçš„è„šæœ¬
+/*
+    Ä§·½²Ù×÷µÄ½Å±¾
 */
 
-// å˜é‡å£°æ˜
+// ±äÁ¿ÉùÃ÷
 var lengthUnit = 20;
 var dirHash = { 'right': 0, 'up': 1, 'left': 2, 'down': 3, 'undefined': -1};
 var cubeRegionNo = [0, 7, 6, 1, 8, 5, 2, 3, 4];
 var activeRegionArray = [];
 
-// é­”æ–¹æ“ä½œ
-function useCube(map) {                                                     // ä½¿ç”¨é­”æ–¹  
+// Ä§·½²Ù×÷
+function useCube(map) {                                                     // Ê¹ÓÃÄ§·½  
     if (isCubeEmpty) {
         if (currentEnergy == 0) {
-            alert("æ²¡æœ‰è¶³å¤Ÿèƒ½é‡ä½¿ç”¨é­”æ–¹äº†ï¼");
+            alert("Ã»ÓĞ×ã¹»ÄÜÁ¿Ê¹ÓÃÄ§·½ÁË£¡");
             return;
         }
         if (cubeDirection == "undefined") {
-            alert('è¯·å…ˆåœ¨å³è¾¹é€‰æ‹©é­”æ–¹æœå‘');
+            alert('ÇëÏÈÔÚÓÒ±ßÑ¡ÔñÄ§·½³¯Ïò');
             return;
         }
         origin = getPosition(hero);
@@ -39,7 +39,7 @@ function useCube(map) {                                                     // ä
     }
 }
 
-function setCubeDirection(dir) {                                            //é€‰æ‹©é­”æ–¹æœå‘
+function setCubeDirection(dir) {                                            //Ñ¡ÔñÄ§·½³¯Ïò
     if (dir == cubeDirection) return;
 
     if (cubeDirection == 'undefined') {
@@ -57,7 +57,7 @@ function setCubeDirection(dir) {                                            //é€
         return;
     }
 
-    //é­”æ–¹æ—‹è½¬
+    //Ä§·½Ğı×ª
     if (!isCubeEmpty) {
         var canvas = $('canvas.storage')[0];
         var imgSrc = canvas.toDataURL("tmp/png");
@@ -69,32 +69,32 @@ function setCubeDirection(dir) {                                            //é€
         cubeSpace.restore();
     }
 
-    //æ¿€æ´»åŒºåŸŸæ›´æ–°
+    //¼¤»îÇøÓò¸üĞÂ
     for (var i in activeRegionArray) {
         if (activeRegionArray[i] == 8) continue;
         activeRegionArray[i] = ((dirHash[dir] - dirHash[cubeDirection]) * 2 + activeRegionArray[i] + 8) % 8
     }
     cubeDirection = dir;
 
-    //ç„¦ç‚¹æ ‡è¯†
+    //½¹µã±êÊ¶
     htmlRefresh('both');
 }
 
-function switchCubeRegion(index) {                              //é€‰æ‹©é­”æ–¹å­˜å‚¨åŸŸ
-    var no = cubeRegionNo[index];                         //è½¬åŒ–ä¸ºé€‚åˆé­”æ–¹æ—‹è½¬çš„ç¼–å·æ–¹å¼
+function switchCubeRegion(index) {                              //Ñ¡ÔñÄ§·½´æ´¢Óò
+    var no = cubeRegionNo[index];                         //×ª»¯ÎªÊÊºÏÄ§·½Ğı×ªµÄ±àºÅ·½Ê½
     if (cubeDirection == 'undefined') {
-        alert("è¯·å…ˆæŒ‡å®šé­”æ–¹æœå‘ã€‚");
+        alert("ÇëÏÈÖ¸¶¨Ä§·½³¯Ïò¡£");
         return;
     }
     if (no == activeRegionArray[0]) {
-        alert("é­”æ–¹å¿…é¡»ä½¿ç”¨è¿™ä¸ªåŸŸä½œä¸ºé€šé“ä¸å¤–ç•Œäº¤æ¢ã€‚");
+        alert("Ä§·½±ØĞëÊ¹ÓÃÕâ¸öÓò×÷ÎªÍ¨µÀÓëÍâ½ç½»»»¡£");
         return;
     }
     if (!isRegionChangeable()) {
-        alert("é­”æ–¹å­˜å‚¨ç©ºé—´å·²å›ºå®š");
+        alert("Ä§·½´æ´¢¿Õ¼äÒÑ¹Ì¶¨");
     }
 
-    var flag = false;                               //è¡¨ç¤ºè¯¥åŒºåŸŸæ˜¯æ¿€æ´»çš„
+    var flag = false;                               //±íÊ¾¸ÃÇøÓòÊÇ¼¤»îµÄ
     var haveAjacentRegion = false;
     for (var i in activeRegionArray) {
         if (activeRegionArray[i] == no) {
@@ -109,16 +109,16 @@ function switchCubeRegion(index) {                              //é€‰æ‹©é­”æ–¹å­
         activeRegionArray.length--;
     }
     else if (activeRegionArray.length >= currentEnergy)
-        alert("æ²¡æœ‰è¶³å¤Ÿèƒ½é‡æ¿€å‘æ›´å¤šé­”æ–¹åŒºåŸŸäº†ï¼");
+        alert("Ã»ÓĞ×ã¹»ÄÜÁ¿¼¤·¢¸ü¶àÄ§·½ÇøÓòÁË£¡");
     else if (!haveAjacentRegion)
-        alert("æ¿€æ´»çš„é­”æ–¹åŒºåŸŸå¿…é¡»è¿æˆä¸€å—ï¼");
+        alert("¼¤»îµÄÄ§·½ÇøÓò±ØĞëÁ¬³ÉÒ»¿é£¡");
     else activeRegionArray[activeRegionArray.length++] = no;
 
     htmlRefresh('storageRegion');
 
 }
 
-// åˆ·æ–°ç½‘é¡µ
+// Ë¢ĞÂÍøÒ³
 function htmlRefresh(type) {
     
     if (type == 'direction' || type == 'both') {
@@ -141,7 +141,7 @@ function htmlRefresh(type) {
     else $('canvas.storage').css("background", "black");
 }
 
-// é‡ç½®çŠ¶æ€
+// ÖØÖÃ×´Ì¬
 function resetCube() {
     isCubeEmpty = true;
     activeRegionArray = [];
@@ -152,7 +152,7 @@ function resetCube() {
 }
 
 
-// å†…éƒ¨å‡½æ•°
+// ÄÚ²¿º¯Êı
 function cubeRegionNotoIndex(no) {
     var tmp = [0, 3, 6, 7, 8, 5, 2, 1, 4];  
     return tmp[no];
@@ -169,7 +169,7 @@ function reverseImage(image) {
 
 
 
-function cubeRegionOrdinates(no) {                 // æ ¹æ®é­”æ–¹åŒºåŸŸç¼–å· è¿”å› ç›¸å¯¹ç”»å¸ƒåæ ‡ã€‚
+function cubeRegionOrdinates(no) {                 // ¸ù¾İÄ§·½ÇøÓò±àºÅ ·µ»Ø Ïà¶Ô»­²¼×ø±ê¡£
     var rslt = {};
     rslt.left = cubeRegionNotoIndex(no) % 3 * lengthUnit;
     rslt.top = parseInt(cubeRegionNotoIndex(no) / 3) * lengthUnit;
@@ -204,7 +204,7 @@ function posCorrection(dir) {
         case 'left': return { x: -3 * lengthUnit, y: -2 * lengthUnit};
         case 'up': return {x: -1 * lengthUnit, y: -4 * lengthUnit};
         case 'down': return { x: -1 * lengthUnit, y: 0 };
-        default : alert("ä¸åˆæ³•çš„æ–¹å‘ï¼");
+        default : alert("²»ºÏ·¨µÄ·½Ïò£¡");
     }
 }
 

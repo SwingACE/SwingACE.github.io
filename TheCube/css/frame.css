@@ -163,3 +163,11 @@ img.heroPic
 {
     zoom: 1;
 }
+.hintIncident{
+	font-size:64px;
+	font-weight:bolder;
+	position:absolute;
+	color:red;
+	left:400px;
+	top:100px;
+}
